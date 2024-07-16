@@ -5,16 +5,18 @@ import Navigation from "../Navigation";
 import BasicImage from "../BasicImage";
 import FavoriteList from "./FavoriteList";
 import Footer from "../Footer";
+import Loader from "../Loader";
 
 export default function Favorite() {
   return (
     <>
       {" "}
+      <Loader />
       <motion.div
         initial={{ opacity: 0, y: -500 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
-          duration: 0.5,
+          duration: 2,
           ease: "easeInOut",
         }}
       >

@@ -9,7 +9,7 @@ export default function BasicImage({ title = "", image, description }) {
       y: 0,
       transition: {
         staggerChildren: 0.1,
-
+        delay: 1,
         when: "beforeChildren",
       },
     },

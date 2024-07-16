@@ -12,17 +12,27 @@ import Footer from "../Footer";
 import { motion, useScroll, useSpring } from "framer-motion";
 import ScrollAnimation from "react-animate-on-scroll";
 import MenuInfo from "./MenuInfo";
+import styled from "styled-components";
+import Loader from "../Loader";
+
+// const NoScrollContainer = styled.div`
+//   overflow: hidden;
+// `;
 export default function Home() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
+  //   const { scrollYProgress } = useScroll();
+  //   const scaleY = useSpring(scrollYProgress, {
+  //     stiffness: 100,
+  //     damping: 30,
+  //     restDelta: 0.001,
+  //   });
   return (
     <>
-      <motion.div className="progress-bar" style={{ scaleX }} />
-      <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+      <Loader />
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 1.1 }}
+      >
         <Navigation />
         <Hero />
       </motion.div>

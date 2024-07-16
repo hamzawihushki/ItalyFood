@@ -4,12 +4,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 export default function NiceCard({ image, name, id }) {
   return (
-    <Link
-      to={`/menu/${id}`}
-      onClick={() => {
-        window.reload();
-      }}
-    >
+    <Link to={`/menu/${id}`}>
       <motion.div
         className="card1"
         initial={{ opacity: 0, y: 50 }}

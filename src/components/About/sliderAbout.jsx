@@ -10,14 +10,37 @@ export default function sliderAbout() {
     infinite: true,
     slidesToShow: 5,
     slidesToScroll: 1,
-    arrow: true,
-    autoplay: true,
+    arrows: false,
+    autoplay: false,
     speed: 1300,
     autoplaySpeed: 1500,
     cssEase: "ease",
+    responsive: [
+      {
+        breakpoint: 1024, // Medium devices (tablets, 768px and up)
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 600, // Small devices (landscape phones, 576px and up)
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480, // Extra small devices (portrait phones, less than 576px)
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
-    <div className="container">
+    <div className="text-center">
       <Slider {...settings}>
         <div style={{ background: "#000 " }}>
           <img src={img1} />

@@ -1,5 +1,6 @@
 body {
   overflow-x: hidden;
+  scroll-behavior: smooth !important;
 }
 
 @font-face {
@@ -414,14 +415,73 @@ footer {
   }
 }
 
+
+
+/* Hide the default scrollbar for all browsers */
+::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}
+
+/* Optional: Show a custom scrollbar for browsers that support it */
+/* Width and height of the scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track (background) of the scrollbar */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  /* Light grey */
+}
+
+/* Handle (thumb) of the scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  /* Dark grey */
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Apply custom scrollbar styles to a specific element */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  /* Light grey */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #888;
+  /* Dark grey */
+  border-radius: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .progress-bar {
   position: fixed;
-  top: 0%;
-  left: 0;
+  top: 0;
   right: 0;
-  height: 10px;
+  width: 10px;
+  height: 100%;
   background: #757575;
-  transform-origin: 0%;
+  transform-origin: top;
   z-index: 55;
 }
 
@@ -711,8 +771,48 @@ footer {
   }
 }
 
+.wrapper-toggle {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 
+  .type-btn {
+    background-color: #e3c100;
+    border-radius: 0 !important;
+  }
+}
 
+.slick-slide {
+  img {
+    margin: auto;
+  }
+}
+
+/* App.css */
+/* Change text selection color */
+::selection {
+  background-color: #b1a500;
+  /* Blue background */
+  color: #fff;
+  /* White text color */
+}
+
+/* Change text selection color for input fields */
+input::selection {
+  background-color: #aaa400;
+  /* Red background for inputs */
+  color: #fff;
+  /* White text color */
+}
+
+/* Change text selection color for textarea */
+textarea::selection {
+  background-color: #2ecc71;
+  /* Green background for textarea */
+  color: #fff;
+  /* White text color */
+}
 
 
 @media (max-width: 1199px) {
@@ -816,11 +916,23 @@ footer {
 
 
   }
+
+
+
 }
 
 @media (max-width: 991px) {
   .navbar-toggler {
     border-color: #e9a91e9c !important;
+  }
+
+  .navbar {
+    position: absolute;
+    width: 70% !important;
+    background-color: transparent !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 5000;
   }
 
   .navbar-collapse {
@@ -831,8 +943,10 @@ footer {
   .navbar-toggler-icon {
     color: #ffffff !important;
     background-image: url("./assets/asd.svg") !important;
-
+    transition: .2s !important;
   }
+
+
 
   .collapsed {
     border: 1px solid #e9a91e9c !important;
@@ -860,20 +974,39 @@ footer {
   }
 
   footer {
+    border-top: #22232824 1px solid;
     flex-direction: column;
+    text-align: center !important;
+    margin-top: 41px;
 
+    .icons {
+      justify-content: center;
+    }
+
+    h5 {
+      text-align: center !important;
+    }
 
     .footer-details {
       width: 100% !important;
+      text-align: center !important;
 
       p {
         font-size: 15px !important;
+        text-align: center !important;
+
       }
 
     }
 
+    ul {
+      text-align: center;
+      margin: auto;
+    }
+
     ul li {
       font-size: 15px !important;
+
     }
   }
 
@@ -888,4 +1021,5 @@ footer {
       text-align: center;
     }
   }
+
 }

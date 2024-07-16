@@ -7,14 +7,17 @@ import OurTeam from "../Home/OurTeam";
 import Footer from "../Footer";
 import { motion } from "framer-motion";
 import "../../App.css";
+import Loader from "../Loader";
 export default function Menu() {
   return (
     <>
+      <Loader />
+
       <motion.div
         initial={{ opacity: 0, y: -500 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
-          duration: 0.5,
+          duration: 2,
           ease: "easeInOut",
         }}
       >
@@ -25,7 +28,16 @@ export default function Menu() {
           description={"It's Time For Pizza"}
         />
       </motion.div>
-      <OurTeam />
+      <motion.div
+        initial={{ opacity: 0, y: 1000 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 2,
+          ease: "easeInOut",
+        }}
+      >
+        <OurTeam />
+      </motion.div>
       <Footer />
     </>
   );

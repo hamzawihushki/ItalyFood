@@ -5,17 +5,31 @@ import Details from "./components/Menu/Details";
 import PageNotFound from "./components/PageNotFound";
 import Favorite from "./components/Favorite/Favorite";
 import About from "./components/About/About";
+import Cart from "./components/Cart/cart";
+import { ToastProvider } from "./context/ToastContext";
+import { useEffect } from "react";
+import { useUser } from "./context/UserContext";
+import Loader from "./components/Loader";
+
 function App() {
+  const { user, setUser } = useUser();
+  useEffect(() => {
+    setUser(localStorage.getItem("user") || "");
+  }, []);
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/menu/" element={<Menu />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/menu/:id" element={<Details />} />
-        <Route path="/favorite" element={<Favorite />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
+      <ToastProvider>
+        <Loader />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/menu/" element={<Menu />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/menu/:id" element={<Details />} />
+          <Route path="/favorite" element={<Favorite />} />
+          <Route path="/Cart" element={<Cart />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </ToastProvider>
     </>
   );
 }

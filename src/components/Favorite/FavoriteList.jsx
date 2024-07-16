@@ -44,10 +44,9 @@ export default function FavoriteList() {
       {" "}
       <ImageList className="container">
         {newItems.map((item) => (
-          <div>
+          <div key={item.idMeal}>
             <Link to={`/menu/${item.idMeal}`}>
               <ImageListItem
-                key={item.idMeal}
                 style={{
                   width: "100%",
                   height: "200px",

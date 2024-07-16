@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import WhoAreWe from "./WhoAreWe";
 import OurStory from "./OurStory";
 import SliderAbout from "./sliderAbout";
+import Loader from "../Loader";
 
 export default function About() {
   const containerVariants = {
@@ -15,11 +16,14 @@ export default function About() {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
+        delay: 1,
       },
     },
   };
   return (
     <>
+      <Loader />
+
       <Navigation />
       <motion.div
         variants={containerVariants}
